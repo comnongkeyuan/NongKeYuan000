@@ -18,6 +18,9 @@
                          http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
 	<context:component-scan base-package="com.controller"></context:component-scan>
+	
+	 <!-- 注册注解驱动   controller-->
+	<mvc:annotation-driven></mvc:annotation-driven>
 	<!-- 配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
        <!-- 视图前缀 -->
@@ -25,14 +28,13 @@
        <!-- 视图后缀 -->
        <property name="suffix" value=".jsp"/>
     </bean>
-    <!-- 注册注解驱动 -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+   
 	<!-- 资源映射 拦截器当看到你的请求中有 /css/** 或者/js/ 就直接放行了 -->	
-        <mvc:resources location="/WEB-INF/css" mapping="/css/**"/>
-        <mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
-		<mvc:resources location="/WEB-INF/scripts/" mapping="/scripts/**" />
-		<mvc:resources location="/WEB-INF/images/" mapping="/images/**" />
-	
+       <!--  <mvc:resources location="/static/css" mapping="/css/**"/>
+        <mvc:resources location="/static/js/" mapping="/js/**" />
+		<mvc:resources location="/static/scripts/" mapping="/scripts/**" />
+		<mvc:resources location="/static/img/" mapping="/img/**" />
+	 -->
 	
 </beans>  
 
